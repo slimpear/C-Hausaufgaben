@@ -1,0 +1,27 @@
+"""Gestalten Sie also die Schnittstellen bzw. Methodenaufrufe im Client so,
+als wäre die Funktionalität des entfernten Systems lokal vorhanden. 
+Die nötige Vorbereitung des Sockets bzw. das Schließen darf weiterhin explizit passieren."""
+
+1. "als wäre die Funktionalität des entfernten Systems lokal vorhanden" bedeutet "Funktion" oder nur "sieh so local-vorhanden 
+    im client-source-code"?
+    
+2. "Die nötige Vorbereitung des Sockets bzw. das Schließen darf weiterhin explizit passieren." was bedeutet das?
+
+
+Wenn es möglich, kannst du bitte beschreiben Work-Flow von dem Client? Es ist immer noch nicht klar.
+
+Jetzt verstehe ich so:
+1. Client get infor von Command line: IP + Port + Data(loca, aber optional)
+2. Client bearbeitet Data(local) und packet zum Key(enthält Filme Titel) + Value(Filme Titel + Jar + Länge...). Aber was bedeutet
+  """dass er 25 (z.B. zufa ̈llige) <key, value> Paare hintereinander speichert, ausliest,...."""?  Also erstmal 
+    - Schick 25 Paare <key, value> + printf() confirm von Server "gespeichert!".
+    - Versuchen aus Server Filme auszulesen, also get("James Bone") z.B.
+    - Weiter mit löschen. Danach get() gelöscht Element und erwartet ein error message von Server?
+    
+    
+"Beantworten Sie zusätzlich die theoretische Frage, ob die at-least-once Semantik fu ̈r eine Hash-Table Sinn macht."
+==>> OK ich verstehe so: Client muss nicht Hashtable implementieren weil Client liest ein Zeile und schickt dem Server sofort, also 
+      benögtigt Client keine Speicher-Bedarf.
+      So lange Client keine Anwort (gespeichert/error... was doch immer) von Server bekommt, schickt der Client nochmal und nochmal
+      (das gleiche Daten natürlich). Vielleicht nach 5 Versuch hört er auf und schreibt User: "Geht nicht, Server busy bla bla..."
+
