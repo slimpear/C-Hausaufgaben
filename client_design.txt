@@ -7,6 +7,7 @@ Die nötige Vorbereitung des Sockets bzw. das Schließen darf weiterhin explizit
     
 2. "Die nötige Vorbereitung des Sockets bzw. das Schließen darf weiterhin explizit passieren." was bedeutet das?
 
+Ich weiß nicht was sie damit meinen.
 
 Wenn es möglich, kannst du bitte beschreiben Work-Flow von dem Client? Es ist immer noch nicht klar.
 
@@ -18,10 +19,15 @@ Jetzt verstehe ich so:
     - Versuchen aus Server Filme auszulesen, also get("James Bone") z.B.
     - Weiter mit löschen. Danach get() gelöscht Element und erwartet ein error message von Server?
     
-    
+Der Client soll mit den Argumenten aufgerufen: [IP-Adresse bzw. Name des Server] , [Eine Datei, so geschrieben wie sie bei ISIS steht, die Filme enthählt (filme.csv) ].
+Dann soll er 25 Filme speichern (also set machen), dann die Filme die er gespeichert hat auslesen (also 25 mal get), danach die Filme die er gespeichert und ausgelesen hat löschen (25 mal delete machen) und dann wieder versuchen diese Filme auszulesen ( also wieder 25 mal get) machen.
+
+Ich glaube wenn ein Film nicht in der DB ist, dann soll er als Value einfach nur NULL zurückgeben.
+
 "Beantworten Sie zusätzlich die theoretische Frage, ob die at-least-once Semantik fu ̈r eine Hash-Table Sinn macht."
 ==>> OK ich verstehe so: Client muss nicht Hashtable implementieren weil Client liest ein Zeile und schickt dem Server sofort, also 
       benögtigt Client keine Speicher-Bedarf.
       So lange Client keine Anwort (gespeichert/error... was doch immer) von Server bekommt, schickt der Client nochmal und nochmal
       (das gleiche Daten natürlich). Vielleicht nach 5 Versuch hört er auf und schreibt User: "Geht nicht, Server busy bla bla..."
 
+Ich würde sagen, dass sie meinen 
